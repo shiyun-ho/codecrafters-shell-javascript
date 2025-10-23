@@ -7,15 +7,21 @@ const rl = readline.createInterface({
 });
 
 
-// rl.question("$ ", (answer) => {
-//   console.log(`${answer}: command not found`);
-//   // rl.close();
-// });
-
 rl.prompt();
+
 rl.on('line', (answer) => {
-  console.log(`${answer}: command not found`);
+
+  var firstCommand = answer.split(" ")[0];
+
+  switch (firstCommand) {
+    case 'exit':
+      rl.close();
+      process.exit(0);
+    default:
+      console.log(`${answer}: command not found`);
+  }
   rl.prompt();
+
 }).on('close', () => {
   rl.close();
   process.exit(0);
