@@ -12,8 +12,12 @@ rl.prompt();
 rl.on('line', (answer) => {
 
   var firstCommand = answer.split(" ")[0];
+  var remainingWords = answer.slice(answer.indexOf(" ") + 1);
 
   switch (firstCommand) {
+    case 'echo':
+      console.log(`${remainingWords}`);
+      // TODO: Figure out why rl.prompt() does not call
     case 'exit':
       rl.close();
       process.exit(0);
