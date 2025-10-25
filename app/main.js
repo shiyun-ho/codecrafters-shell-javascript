@@ -17,12 +17,13 @@ rl.on('line', (answer) => {
   switch (firstCommand) {
     case 'echo':
       console.log(`${remainingWords}`);
-      // TODO: Figure out why rl.prompt() does not call
+      break;
     case 'exit':
       rl.close();
       process.exit(0);
     default:
       console.log(`${answer}: command not found`);
+      break;
   }
   rl.prompt();
 
